@@ -20,13 +20,15 @@ def main():
 
         if scelta == "1":
             nuovo_responsabile = input("Inserisci il nuovo responsabile: ")
-            # TODO: Aggiorna responsabile nel sistema
+            deposito.responsabile = nuovo_responsabile
+            print(f"Responsabile aggiornato con successo: {deposito.responsabile}")
 
         elif scelta == "2":
             while True:
                 try:
                     file_path = input("Inserisci il path del file da caricare: ").strip()
                     deposito.carica_file_strumenti(file_path)
+                    print("File caricato correttamente!")
                     break
                 except Exception as e:
                     print(e)
@@ -45,6 +47,7 @@ def main():
 
         elif scelta == "4":
             strumenti_ordinati = deposito.strumenti_ordinati_per_marca()
+            print("\n--- Elenco Strumenti ---")
             for s in strumenti_ordinati:
                 print(f'- {s}')
 
